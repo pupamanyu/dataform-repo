@@ -1,3 +1,15 @@
+config {
+    tags: ["process"],
+    type: "table",
+    description: "A table for storing poduct sold",
+    columns: {
+        account_number: "Account ID as defined in the source system.",
+        products_sold: "Count of unique products sold to the customer"
+    },
+    schema: `${dataform.projectConfig.vars.dataset_id_exposure}`,
+    database: `${dataform.projectConfig.vars.dataset_projectid_exposure}`,
+    name: "customer_lifetime_value"
+}
 SELECT
   account_number,
   sum(

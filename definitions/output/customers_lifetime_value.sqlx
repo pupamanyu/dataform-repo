@@ -3,7 +3,7 @@ config {
     type: "table",
     description: "A table for storing lifetime customer summaries",
     columns: {
-        account_id: "Account ID as defined in the source system.",
+        account_number: "Account Number as defined in the source system.",
         lifetime_withdrawals: "Sum of all successful withdrawals",
         lifetime_deposits: "Sum of all successful deposits",
         latest_balance: "Most recent balance amount for the account",
