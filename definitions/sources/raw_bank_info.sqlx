@@ -54,7 +54,7 @@ CREATE OR REPLACE EXTERNAL TABLE
     name STRING,
     last_name STRING
     )
-WITH CONNECTION `${dataform.projectConfig.vars.connection_name}` OPTIONS( uris = ['gs://${dataform.projectConfig.vars.sample_data_bucket}/*'],
+WITH CONNECTION `${dataform.projectConfig.vars.connection_name}` OPTIONS( uris = ['gs://${dataform.projectConfig.vars.sample_data_bucket}/bank_info.csv'],
     max_staleness = INTERVAL 8 HOUR,
     metadata_cache_mode = 'AUTOMATIC',
     format = 'CSV' )

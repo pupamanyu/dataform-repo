@@ -21,3 +21,4 @@ SELECT
     max(case when t.transaction_reverse_rank = 1 then balance else null end) as starting_balance
 FROM
    ${ref("curated_transactions")} t
+group by 1
