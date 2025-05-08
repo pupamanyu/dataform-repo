@@ -1,0 +1,12 @@
+SELECT
+  account_number,
+  sum(
+    case when personal_loan then 1 else 0 end,
+    case when securities_account then 1 else 0 end,
+    case when cd_account then 1 else 0 end,
+    case when online then 1 else 0 end,
+    case when credit_card then 1 else 0 end
+    ) as products_sold
+FROM
+   `${dataform.projectConfig.vars.dataset_projectid_landing}.${dataform.projectConfig.vars.dataset_id_landing}`.curated_bank_info
+group by 1
