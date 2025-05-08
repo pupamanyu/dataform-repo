@@ -18,7 +18,9 @@ SELECT
     sum(t.withdrawal_amount) as lifetime_withdrawals,
     sum(t.deposit_amount) as lifetime_deposits,
     max(case when t.transaction_rank = 1 then balance else null end) as latest_balance,
-    max(case when t.transaction_reverse_rank = 1 then balance else null end) as starting_balance
+    max(case when t.transaction_reverse_rank = 1 then balance else null end) as starting_balance,
+    max(case when t.transaction_rank = 1 then date else null end) as latest_transaction_date,
+    max(case when t.transaction_reverse_rank = 1 then date else null end) as earliest_transaction_date
 FROM
    ${ref("curated_transactions")} t
 group by 1
